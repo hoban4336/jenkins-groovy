@@ -48,11 +48,13 @@ def call(code,appName) {
     }
     """
 
-    httpRequest(
+    def response = httpRequest(
         httpMode: 'POST',
         contentType: 'APPLICATION_JSON',
         requestBody: payload,
         url: webhookUrl
     )
+    
+    echo "Response Status: ${response.status}"
 }
 
